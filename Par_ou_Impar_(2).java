@@ -3,7 +3,7 @@ public class ParoouImpar {
     public static void main(String[] args) {
         int n[] = new int[9];
         for (int i = 0; i < n.length; i++) {
-            n[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite o " + (1 + i) + "บ numero"));
+            n[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite o " + (1 + i) + "ยบ numero"));
         }
         for (int i = 1; i < n.length; i++) {
             boolean primo = true;
