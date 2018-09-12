@@ -1,42 +1,68 @@
 import java.util.Scanner;
-public class teste1 {
-    public static void main(String[] args) {
-    Scanner conta = new Scanner(System.in);
-    System.out.println("Escolha Qual operação deseja Fazer !!");
-    System.out.println("---------------------------");
-    System.out.println("Digite seu Saldo Inicial: ");
-    int saldo = conta.nextInt();
-    int opcao = 0;
-    while (opcao != 4) {
-    System.out.println("Digite 1 para Saque");
-    System.out.println("Digite 2 para Deposito ");
-    System.out.println("Digite 3 para ver o Saldo");
-    System.out.println("Digite 4 para Sair");
-    System.out.println("---------------------------");
-    opcao = conta.nextInt();
+import javax.swing.JOptionPane;
 
-    switch (opcao) {
-        case 1:
-            System.out.println("Qual o valor do saque? ");
-            int saque = conta.nextInt();
-            if (saque <= saldo) {
-            saldo = (saldo - saque);
-            System.out.println("Você fez um saque de " + saque + " e seu saldo é de " + saldo);
-            } else {
-            System.out.println("Seu saldo é insuficiente");
+public class banco {
+    public static void main(String[] args) {
+        Scanner tcl = new Scanner(System.in);
+        double saldo = 0;
+        boolean sair = false;
+        banco obj = new banco();
+        while (sair == false){
+            obj.Menu();
+            int opcao = tcl.nextInt();
+            switch (opcao){
+                case 1:
+                    obj.MostrarSaldo(saldo);
+                    break;
+                case 2:
+                    saldo = obj.Sacar(saldo);
+                    break;
+                case 3:
+                    saldo = obj.Depositar(saldo);
+                    break;
+                case 4:
+                    sair = obj.Sair(sair);
+                    break;
+                default:
+                    System.out.println("Digite uma opção valida!");
             }
-            break;
-        case 2:
-            System.out.println("Qual o valor do Deposito? ");
-            int deposito = conta.nextInt();
-            saldo = deposito + saldo;
-            System.out.println("Você efetuou um deposito de " + deposito + " e seu saldo é de " + saldo);
-            break;
-        case 3:
-            System.out.println("seu saldo atual é de " + saldo);
-            break;
+        }
     }
+    public void Menu(){
+        System.out.println("Digite uma opcao");
+        System.out.println("-------------");
+        System.out.println("1 - ver saldo");
+        System.out.println("2 - Sacar");
+        System.out.println("3 - Depositar");
+        System.out.println("4 - Sair");
+        System.out.println("-------------");
     }
-    System.out.println("Sistema Finalizado!!");
+    public void MostrarSaldo(double saldo){
+        System.out.println("Seu saldo é R$ " + saldo);
+    }
+    public double Sacar(double saldo){
+        Scanner tcl = new Scanner(System.in);
+        System.out.println("Digite o valor do saque");
+        double valor = tcl.nextInt();
+        saldo = saldo-valor;
+        return saldo;
+    }
+    public double Depositar(double saldo){
+        Scanner tcl = new Scanner(System.in);
+        System.out.println("Digite o valor do deposito");
+        double valor = tcl.nextInt();
+        saldo = saldo+valor;
+        return saldo;
+    }
+    public boolean Sair(boolean sair){
+        Scanner tcl = new Scanner(System.in);
+        System.out.println("Você realmente que sair (S/N)");
+        String acao = tcl.next();
+        if (acao.equals("S")){
+            sair = true;
+        }else{
+            sair = false;
+        }
+        return sair;
     }
 }
