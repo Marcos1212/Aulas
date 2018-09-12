@@ -4,12 +4,12 @@ public class ParoouImpar {
         int n[] = new int[2];    
          
         for (int i = 0; i < n.length; i++) {    
-            n[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite o " + (1 + i) + "º numero"));    
+            n[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite o " + (1 + i) + "Âº numero"));    
         }
          
         for (int i = 0; i < n.length; i++) {
             if( ehPrimo(n[i]) )
-                System.out.println(n[i] + " é primo. Posição no vetor: " + i);
+                System.out.println(n[i] + " Ã© primo. PosiÃ§Ã£o no vetor: " + i);
         }    
     }
      
